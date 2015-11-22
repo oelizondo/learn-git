@@ -248,5 +248,39 @@ For now, let's go ahead and checkout a new branch called *gh-pages*
 ```console
 $ git checkout -b gh-pages
 ```
+Now we just push
+
+```console
+$ git push -u origin gh-pages
+```
+
+And we're done! Our website should be published in just a minute.
+
+###Good Practices and Naming Conventions
+
+Some good practices:
+
+* Always create a dev / mvp / staging branch from master so you can work without worries.
+* Name your branches short and sweet, prefix them with the purpose of that branch *feauture/user_aunthentication*, *test/users_spec*.
+* After making sure your branch is working, merge it to dev and then delete that branch. This avoids having unused left-over data.
+
+Feel free to add any other good practices you feel necessary! How? like this:
+
+###Contributing
+
+1. Fork project!
+2. Make changes!
+3. Pull request!
+
+###Author
+
+####Oscar Elizondo
+* http://twitter.com/oehinojosa
+* http://github.com/oelizondo
 
 
+###Where to now?
+
+These are just the basics of git, I would recommend checking out [Gitflow](https://github.com/nvie/gitflow) to see where these conventions and practices come from. [TryGit](https://try.github.io/levels/1/challenges/1) is acclaimed by the community, why don't you give it a try?
+
+If something is not clear enough here, feel free to send a message or create an issue.
