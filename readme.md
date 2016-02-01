@@ -9,8 +9,10 @@ Topics:
 * Switching to a Dev branch
 * Branching out from Dev
 * Verifying and merging branches
-* Git log
-* Git stash
+* Git Log
+* Git Stash
+* Git Pull
+* Git Clone
 * Link to a remote repository
 * Upload to Github
 * Upload to Github Pages
@@ -20,9 +22,11 @@ If you're on a Windows machine, then you should go to:
 
 * [Git for Windows](https://git-scm.com/download/win)
 
+Additionally, for windows, I'd recommend checking out this script, it's for turning Windows into a full development machine.
+
 I recommend downloading GitBash (which comes with the installation) as well to have a more *nix terminal and make things easier.
 
-If you're on a *nix machine, such as Linux or OSX, then you've nothing to worry about, git already comes with your machine. 
+If you're on a *nix machine, such as Linux or OSX, then you've got nothing to worry about, git already comes with your machine. 
 
 In case you want to update it, or in the unusual case it's not there, then run:
 
@@ -69,7 +73,7 @@ Initialized empty Git repository in /Documents/Playground/Proyectos/git_tutorial
 
 You should see something like this:
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_init.png =500x300)
 
 Perfect, now let's create a simple text file with a classic Hello Wold
 
@@ -80,7 +84,7 @@ $ touch hello.txt && vi hello.txt
 Don't be sacred by the last command, we just told our command line to enter the *vim* editor to add some text to your file.
 Remember to press *i* to enter insert mode and start typing.
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png =500x300)
 
 After that we can exit vi pressing *esc* and *:wq*, press enter and you should be back in your terminal.
 We can check our text file typing:
@@ -97,7 +101,8 @@ $ git status
 
 You should see:
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_status.png =500x300)
+
 
 That means that *hello.txt* has not been added to the git project yet, so let's do that with a command to add *all* the files in our project:
 
@@ -125,7 +130,8 @@ Before anything else, we need to create a dev branch. the Dev branch allows us t
 $ git checkout -b dev
 ```
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png =500x300)
+
 
 Now we have a copy of our project in another branch. It's  time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
 
@@ -172,7 +178,8 @@ We'll see that the *index.html* file is no there! Not to worry, this is because 
 $ git merge feature/website
 ```
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png =500x300)
+
 
 Now, repeating the *ls* command will show us our *index.html* file. Pretty cool, huh?
 
@@ -189,7 +196,8 @@ Git is awesome enough that it keeps track of everything we do, kind of like a lo
 $ git log
 ```
 
-picture goes here
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_log.png =500x300)
+
 
 we can see:
 
@@ -221,7 +229,7 @@ This sends everything into a queue list, and *pause* your branch, allowing you t
 $ git stash pop
 ```
 
-To resume your work
+To resume your work.
 
 ###Github and Github Pages
 
@@ -241,7 +249,7 @@ If it's your first time using git, then you'll be prompted to add your email and
 
 And there we go, you just published your first project on Github!
 
-Great, now we want to publish our website. Wait, what!? But I have to pay for that! Don't worry, Github gives us free hosting of your websites. You can check the whole documentation here: [Github Pages](https://pages.github.com/). 
+Great, now we want to publish our website. Wait, what!? But I have to pay for that! Don't worry, Github gives us free hosting of our websites. You can check the whole documentation here: [Github Pages](https://pages.github.com/). 
 
 For now, let's go ahead and checkout a new branch called *gh-pages*
 
@@ -256,6 +264,9 @@ $ git push -u origin gh-pages
 
 And we're done! Our website should be published in just a minute.
 
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_world.png =500x300)
+
+
 ###Good Practices and Naming Conventions
 
 Some good practices:
@@ -263,6 +274,7 @@ Some good practices:
 * Always create a dev / mvp / staging branch from master so you can work without worries.
 * Name your branches short and sweet, prefix them with the purpose of that branch *feauture/user_aunthentication*, *test/users_spec*.
 * After making sure your branch is working, merge it to dev and then delete that branch. This avoids having unused left-over data.
+* Remember to commit useful messages. Don't make a "lol" commit message. What if another developer has to join your team and must read through your code base?
 
 Feel free to add any other good practices you feel necessary! How? like this:
 
