@@ -284,6 +284,10 @@ Feel free to add any other good practices you feel necessary! How? like this:
 2. Make changes!
 3. Pull request!
 
+###Todo
+* Translate to Spanish.
+
+
 ###Author
 
 ####Oscar Elizondo
