@@ -73,7 +73,7 @@ Initialized empty Git repository in /Documents/Playground/Proyectos/git_tutorial
 
 You should see something like this:
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_init.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_init.png)
 
 Perfect, now let's create a simple text file with a classic Hello Wold
 
@@ -84,7 +84,7 @@ $ touch hello.txt && vi hello.txt
 Don't be sacred by the last command, we just told our command line to enter the *vim* editor to add some text to your file.
 Remember to press *i* to enter insert mode and start typing.
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png)
 
 After that we can exit vi pressing *esc* and *:wq*, press enter and you should be back in your terminal.
 We can check our text file typing:
@@ -101,7 +101,7 @@ $ git status
 
 You should see:
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_status.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_status.png)
 
 
 That means that *hello.txt* has not been added to the git project yet, so let's do that with a command to add *all* the files in our project:
@@ -130,7 +130,7 @@ Before anything else, we need to create a dev branch. the Dev branch allows us t
 $ git checkout -b dev
 ```
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png)
 
 
 Now we have a copy of our project in another branch. It's  time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
@@ -178,7 +178,7 @@ We'll see that the *index.html* file is no there! Not to worry, this is because 
 $ git merge feature/website
 ```
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png)
 
 
 Now, repeating the *ls* command will show us our *index.html* file. Pretty cool, huh?
@@ -196,7 +196,7 @@ Git is awesome enough that it keeps track of everything we do, kind of like a lo
 $ git log
 ```
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_log.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_log.png)
 
 
 we can see:
@@ -264,7 +264,7 @@ $ git push -u origin gh-pages
 
 And we're done! Our website should be published in just a minute.
 
-![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_world.png =500x300)
+![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_world.png)
 
 
 ###Good Practices and Naming Conventions
