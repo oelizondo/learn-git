@@ -1,34 +1,38 @@
-###Learn 2 Git
+###Aprende Git
 
 This mini readme has the basics of how to use git, upload to Github and how to use GithubPages.
+Esta es una pequeña guía que te enseñará:
 
-Topics:
+* Cómo instalar Git.
+* Cómo usar Git.
+* Buenas prácticas.
+* Subir a Github.
 
-* Installing Git
-* Initializing Git in a projects
-* Switching to a Dev branch
-* Branching out from Dev
-* Verifying and merging branches
+Temas:
+
+* Instalar Git
+* Git en proyectos.
+* Branching
+* Usar una Branch de Dev
+* Verificar y unir Branches
 * Git Log
 * Git Stash
 * Git Pull
 * Git Clone
-* Link to a remote repository
-* Upload to Github
-* Upload to Github Pages
+* Unir tu repositorio con uno remoto.
+* Subir a Github
+* Subir a Github Pages
 
-###Installation
-If you're on a Windows machine, then you should go to:
+###Instalación
+Si estás en una máquina con Windows, deberías entrar a: 
 
-* [Git for Windows](https://git-scm.com/download/win)
+* [Git para Windows](https://git-scm.com/download/win)
 
-Additionally, for windows, I'd recommend checking out this script, it's for turning Windows into a full development machine.
+Es preferible que descarguen GitBash (viene en la instalación) para que haya disposición de un emulador tipo *NIX y hacer todo más sencillo.
 
-I recommend downloading GitBash (which comes with the installation) as well to have a more *nix terminal and make things easier.
+Si ya estás en una máquina *NIX, como un distro de LINUX U OS X, entonces no hay nada de qué preocuparse, Git ya viene con tu máquina.
 
-If you're on a *nix machine, such as Linux or OSX, then you've got nothing to worry about, git already comes with your machine. 
-
-In case you want to update it, or in the unusual case it's not there, then run:
+En caso de que quieras actualizarlo, o suceda el raro caso de que no esté instalado, entonces corre en tu terminal:
 
 Linux
 ```console
@@ -42,83 +46,89 @@ $ brew install git
 $ brew upgrade git
 ```
 
-###Initializing Git
+###Empezando con Git
 
-Alright, you've got your machine with git, so now let's start using it.
+Bien, ya tienes tu máquina con git, lo primero que vamos a hacer es asegurarnos de que esté ahí:
 
-This is going to be a mini tutorial on how to use git, so we'll make a small repository.
+```console
+git --version
+```
+Excelente, este tutorial es pequeño, pero cubriremos al rededor de 90% de lo que hay que saber.
 
-First let's make our folder. (I'll use my personal directory path but you an use your own)
+Primero, hagamos nuestra carpeta. Puede ser el lugar que desees de tu computadora, yo tengo una que se llama ```Playground``` donde hagos mis expermientos.
+
+*No hay que temerle a la consola, sino la consola a nosotros* - Proverbio chino.
 
 ```console
 $ cd Docmuents/Playground/Projects
 ```
-
-Once inside your workspace directory, we'll create a folder to place all of our things for this tutorial.
+Una vez dentro de donde quieras hacer tu proyecto, vamos a crear la carpeta donde meteremos todos nuestros archivos:
 
 ```console
 $ mkdir git_tutorial && cd git_tutorial
 ```
 
-Great! Now, let's initialize our git project via:
+Perfecto, ahora vamos a empezar a usar git:
 
 ```console
 $ git init
 ```
-You should get a message like 
+
+Tu terminal debería regresarme un mensaje como este:
 
 ```console
 Initialized empty Git repository in /Documents/Playground/Proyectos/git_tutorial/.git/
 ```
 
-You should see something like this:
+Y deberías ver algo así:
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_init.png)
 
-Perfect, now let's create a simple text file with a classic Hello Wold
+Excelente, ahora vamos a crear un archivo de texto sencillo con el clasiquísimo *Hello world*
 
 ```console
 $ touch hello.txt && vi hello.txt
 ```
 
-Don't be sacred by the last command, we just told our command line to enter the *vim* editor to add some text to your file.
-Remember to press *i* to enter insert mode and start typing.
+No te asustes por el útlimo commando, solo le dijimos a nuestra terminal que entrara al editor de texto *vim* para aregregar algo de texto. Si no te gusta Vim, siempre puedes usar el editor de texto que prefieras
+
+Si sigues en Vim, presiona *i* para entrar en modo *insert* para escribir.
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png)
 
 After that we can exit vi pressing *esc* and *:wq*, press enter and you should be back in your terminal.
 We can check our text file typing:
 
+Después de eso, podemos salir de Vim tecleando *esc* y *:wq*, presiona enter y deberías estar en tu terminal de nuevo. El commando *:wq* significa *write and quit*. Eso le dice a Vim que grabe lo que escribiste y se salga. Ahora, para checar que sí hicimos cambios:
+
 ```console
 $ cat hello.txt
 ```
 
-Now it's time for our first commit. Commits are basically a snapshot of your project, like a picture or a save point. You can always go back to a specific commit, but we'll see that later. First, let's check the project's status to see which file are pending to be added.
+Ahora es hora de nuestro primer commit. Los commits son básicamente una foto de nuestro proyecto en un determinado tiempo. Tómalo como un *ctrl + save* en cualquier programa. Siempre puedes regresarte a un commit en específico, pero veremos eso después, primero, vamos a revisar el *status* del proyecto para ver cuáles archivos está trackeando Git.
 
 ```console
 $ git status
 ```
 
-You should see:
+Deberías ver:
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_status.png)
 
 
-That means that *hello.txt* has not been added to the git project yet, so let's do that with a command to add *all* the files in our project:
+Esto significa que *hello.txt* no ha sido agregado al proyecto en sí. Hagamos eso con un commando sencillo:
 
 ```console
 $ git add -A
 ```
-
-After that we are good to go, let's commit our text file:
+Después de eso, todos nusestros archivos se agregar al proyecto, hagamos el commit:
 
 ```console
 $ git commit -m "Adds text file to project"
 ```
+La bandera *-m* es para agregarle un mensaje a tu commit, es útil para saber qué paso en ese momento. Los mensajes en git son obligatorios, y no te dejará avanzar si no le agregas uno,
 
-the *-m* command is for attaching a message to your commit, to it's easier to see what happened in that save point.
-
-###Branching out
+###Branching
 
 Alright, we have our project rolling, it's time to introduce Branches. Branches allows you create a clone of your project under a different name that's not master, and let's you keep working with a different version of the project without contaminating the master branch. This is useful when we work with other people. Imagine a team of two persons, each branching out from master to his or her own branch and work from there to avoid conflicts with each other.
 
