@@ -129,12 +129,15 @@ $ git commit -m "Adds text file to project"
 La bandera *-m* es para agregarle un mensaje a tu commit, es útil para saber qué paso en ese momento. Los mensajes en git son obligatorios, y no te dejará avanzar si no le agregas uno,
 
 ###Branching
+Muy bien, tenemos nuestro proyecto, hicimos nuestro primer commit, y ahora es hora de ver una de las funciones más importantes de Git. Branching. Branching te permite tener differentes versiones de tu proyecto dentro del mismo proyecto bajo un nonmbre diferente a master. Esto nos permite trabajar en un lugar aislado de la aplicación y lejos de master, y así no contaminar la versión final del proyecto. 
 
-Alright, we have our project rolling, it's time to introduce Branches. Branches allows you create a clone of your project under a different name that's not master, and let's you keep working with a different version of the project without contaminating the master branch. This is useful when we work with other people. Imagine a team of two persons, each branching out from master to his or her own branch and work from there to avoid conflicts with each other.
+Esto es útil para trabajar en equipo. Imáginate que cada miembro del equipo tiene su propia branch donde escribe su código y corre y sus pruebas, y hasta que esté completamente validada va a poder mezclarse con master.
 
-####The dev branch
 
-Before anything else, we need to create a dev branch. the Dev branch allows us to break, refactor, add, delete as much code as we need before sending it to production. After all the code has been verified in Dev, we can merge it with master and push it.
+####La rama Dev
+
+Antes de hacer cualquier cosa, debemos crear la rama de Dev. Dev nos permite romper, refactorizar, agregar y borrar todo el código que necesitemos antes de mandarlo a producción. Después de que todo el código en Dev haya sido verificado, se puede mandar a master y posteriormente a producción
+
 
 ```console
 $ git checkout -b dev
@@ -142,8 +145,15 @@ $ git checkout -b dev
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png)
 
+Ahora tenemos una copia de nuestro proyecto en una rama diferente, así no contaminamos la rama master. Es hora de modificarla, y para esto entraremos rápidamente en una buena práctica: tener una rama separada para cada cosa que hagamos. Por ejemplo
 
-Now we have a copy of our project in another branch. It's  time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
+* Componentes 
+* Pruebas
+* Fixes
+* Bugs
+* Features 
+
+Ahorita mismo  mismo estamos en Dev, así que crearemos una rama nueva para trabajar en un sitio de internet. La llamaramos ```feature/website``` y le pondremos un archivo de HTML.
 
 ```console
 $ git checkout -b feature/website
@@ -159,18 +169,18 @@ The content is in this link:
 
 * [Simple Website structure](https://gist.githubusercontent.com/oelizondo/d5b95e661878135feeb6/raw/dc2893cb0066dd3c8cf127bf5cbf10e6f8a1bbef/index.html)
 
-Just copy and paste it with any text editor.
+Puedes crear el contenido con cualquier editor de texto.
 
-###Verifying and merging branches
+###Verificando y mezclando ramas
 
-Great! Now it's time to make our new commit. Same as before:
+Excelente, ahora es tiempo de hacer un commit nuevo:
+
 
 ```console
 $ git add -A
 $ git commit -m "Adds website to project"
 ```
-
-Awesome, now it's time to *merge* our branches. Merging just means we take one branch and combine it with another one. We're going to merge it into Dev right now, here's how it would look like:
+Perfecto, y ahora debemos agregar nuestra rama con el archivo HTML al proyecto principal. Mezclar es exactamente eso, agarramos una rama y la mezclamos con otra. Se ve algo así:
 
 ```console
 $ git checkout dev
@@ -182,7 +192,7 @@ If we do
 $ ls
 ```
 
-We'll see that the *index.html* file is no there! Not to worry, this is because our *index.html* is in another branch, and we're going to bring it over here.
+Con ese commando podemos ver los archivos en el directorio, y nos damos cuenta de que *index.html* no está ahi. No te alarmes, esto es porque *index.html* está en una rama separada, y la vamos a traer para acá:
 
 ```console
 $ git merge feature/website
@@ -190,17 +200,16 @@ $ git merge feature/website
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png)
 
+Ahora si volvemos a hacer *ls* podemos ver nuestro *index.hmtl*, bastante cool, ¿verdad?
 
-Now, repeating the *ls* command will show us our *index.html* file. Pretty cool, huh?
-
-**Good practice**
-It's good practice to first verify that the external branch (in this case feature/website) works correctly. Maybe right now it's not obvious, but in a Rails application for example, we should make sure all our tests are passing before merging an important feature into dev, and more importantly, master.
+**Buena Práctica**
+Es bueno primero verificar que las ramas que vayamos a mezclar, en este caso *feature/website* funcione. Tal vez esto no es muy obvio ahorita, pero en una aplicación de Rails por ejemplo, tenemos que asegurarnos que todas las pruebas pasen antes de traerla a Dev, y más imporantemente, master.
 
 ###Git log
 
+Parece que llevamos mucho, pero vamos a ver con detalle exactamente qué. ¿Cómo hacemos esto?
+Git es bastante bueno que tiene un tracking de todo lo ue hacemos en el proyecto, como un diario de actividades, hagamos:
 Seems like we did a lot, but let's go back to see what we actually did. Wait, how do we do that?
-
-Git is awesome enough that it keeps track of everything we do, kind of like a log (not a wooden one). If we type
 
 ```console
 $ git log
@@ -209,39 +218,40 @@ $ git log
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_log.png)
 
 
-we can see:
+Podemos ver:
 
-* The commit Id
-* The author of the commit
-* When was the commit made
-* The message that comes with the commit
+* El ID del commit.
+* El autor del commit.
+* Cuándo se hizo el commit.
+* El mensaje justificándolo (Ya ves porqué son imporantes).
 
-This is very useful and we can keep track of *who* does *what* and *when*. Remember when I told you we can hop to different commits in case somebody commited some buggy code? We totally can:
+Esto es muy importante, porque así podemos saber *quién* hizo *qué*, *cuándo* y *por qué*. ¿Te acuerdas cuando dije que podías regresar a cualquier commit que quieras para checar algo, agregar, quitar o modificar código? Se hace así:
 
 ```console
 git checkout <commit_id>
 ```
-
-This will send us back in time to that specific point of our project and allow us to fix that buggy code nobody likes.
+Esto nos va a regresar en el tiempo (la verdad no) a ese punto en específico en nuestro proyecto donde podemos modificar lo que neceistemos.
 
 ###Git stash
 
-This is a more specific feature of git, but let's say you're in *feature/website* and some coworker asks you to do something in *dev*. That's fair, but you're not finished working in your branch, and to change back to *dev* you'd have to make a silly commit with work that's not done. This is where *git stash* comes in. Git stash let's you add your modified files but instead of commiting them we just
+Esta es una función más específica de git, pero digamos que estás en la rama *feature/website* y un miembro del equipo de pide que hagas una modificación en Dev. Se vale, pero no haz acabado de trabajar en tu rama, y si intentas cambiarte a Dev vas a recibir un error diciendo que tienes que hacer un commit primero. Para eso funciona *git stash*. Esta función te deja *poner en pause* o *congelar* lo que estamos haciendo y cambiarnos a otras ramas. Se hace así:
 
 ```console
 $ git add -A
 $ git stash
+$ git checout <otra_rama>
 ```
-
-This sends everything into a queue list, and *pause* your branch, allowing you to switch over to dev and continue working. When coming back to *feature/website* then you should just
+Esto manda todo a una lista donde se quedará esperando hasta que regresamos a la rama del cual la usamos. Como es una lista, lo natural sería hacer:
 
 ```console
 $ git stash pop
 ```
 
-To resume your work.
+Para regresar a trabajar.
 
-###Github and Github Pages
+###Github y Github Pages
+
+Muy bien, probablemente te estés preguntando cómo puedes subir tu trabajo a github y tener miles de estrellitas. Okay, te diré el secreto. Si estás leyendo esto entonces ya estás en github, así que haz una cuenta si no tienes una y pícale al botón verde que dice *New Repository*, pónle un nombre, un descripción rápida ¡y Crear!
 
 Alright, you're probably wondering by now how to upload your repository to Github and have many stars. Alright, I'll tell you, if you're reading this then you're already here in github, so go ahead and click the big green button that says **+ New repository**. Name it, add a description and click the create button.
 
