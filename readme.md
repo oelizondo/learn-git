@@ -284,7 +284,7 @@ Feel free to add any other good practices you feel necessary! How? like this:
 
 1. Clone project.
 3. Checkout a new branch for your changes.
-4. Do ```git push -u origin <your_branch>
+4. Do ```git push -u origin <your_branch>```
 5. Create a pull request from your banch to ```spanish```.
 
 ###Todo
