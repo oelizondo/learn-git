@@ -89,6 +89,8 @@ Remember to press *i* to enter insert mode and start typing.
 After that we can exit vi pressing *esc* and *:wq*, press enter and you should be back in your terminal.
 We can check our text file typing:
 
+If your'e in Windows, any text editor will do, like notepad.
+
 ```console
 $ cat hello.txt
 ```
@@ -280,9 +282,10 @@ Feel free to add any other good practices you feel necessary! How? like this:
 
 ###Contributing
 
-1. Fork project!
-2. Make changes!
-3. Pull request!
+1. Clone project.
+3. Checkout a new branch for your changes.
+4. Do ```git push -u origin <your_branch>
+5. Create a pull request from your banch to ```spanish```.
 
 ###Todo
 * Translate to Spanish.
