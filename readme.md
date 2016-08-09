@@ -22,6 +22,15 @@ Topics:
 
 People call git time-traveling, others call it a miracle, but the truth is, Git is a *version manager*. This means that Git helps us keep track of things in our projects.
 
+### Glossary
+
+* ```mkdir``` make a directory
+* ```touch``` create a file
+* ```cat``` output content of a file
+* ```cd``` change directory 
+* ```vi``` enter text editor vi
+* ```ls``` list directory contents
+
 ###Installation
 If you're on a Windows machine, then you should go to:
 
@@ -45,7 +54,7 @@ $ brew install git
 $ brew upgrade git
 ```
 
-##### Small not on the ```brew``` command:
+##### Small note on the ```brew``` command:
 Brew stands for Homebrew, a very nice package manager, specifically for OSX, this PM will help you in the future, for installing things like databases, like Postgres, programming languages, like Ruby, and version managers, like RVM. 
 
 You can download it here: [HOMBREW](http://brew.sh/).
@@ -97,7 +106,7 @@ Remember to press *i* to enter *insert* mode and start typing.
 After that we can exit vi pressing *esc* and *:wq* (wq stands for *write* and *quit*), press enter and you should be back in your terminal.
 We can check our text file typing:
 
-If your'e in Windows, any text editor will do, like notepad.
+If you're in Windows, any text editor will do, like notepad.
 
 ```console
 $ cat hello.txt
@@ -255,7 +264,7 @@ The next screen is kinda scary, but no fear, we only need the middle option **â€
 
 Before we can push anything though, we need to merge with *master*, remember? Go ahead and commit everything you have in *dev*, and merge to *master* (No tutorial this time, your turn!).
 
-Now we just copy pase:
+Now we just copy paste:
 
 ```console
 $ git remote add origin git@github.com:<your_username>/<your_repository>.git
