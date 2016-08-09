@@ -4,6 +4,7 @@ This mini readme has the basics of how to use git, upload to Github and how to u
 
 Topics:
 
+* What is Git
 * Installing Git
 * Initializing Git in a projects
 * Switching to a Dev branch
@@ -17,12 +18,14 @@ Topics:
 * Upload to Github
 * Upload to Github Pages
 
+### What is Git
+
+People call git time-traveling, others call it a miracle, but the truth is, Git is a *version manager*. This means that Git helps us keep track of things in our projects.
+
 ###Installation
 If you're on a Windows machine, then you should go to:
 
-* [Git for Windows](https://git-scm.com/download/win)
-
-Additionally, for windows, I'd recommend checking out this script, it's for turning Windows into a full development machine.
+#### [Git for Windows](https://git-scm.com/download/win)
 
 I recommend downloading GitBash (which comes with the installation) as well to have a more *nix terminal and make things easier.
 
@@ -42,13 +45,18 @@ $ brew install git
 $ brew upgrade git
 ```
 
+##### Small not on the ```brew``` command:
+Brew stands for Homebrew, a very nice package manager, specifically for OSX, this PM will help you in the future, for installing things like databases, like Postgres, programming languages, like Ruby, and version managers, like RVM. 
+
+You can download it here: [HOMBREW](http://brew.sh/).
+
 ###Initializing Git
 
-Alright, you've got your machine with git, so now let's start using it.
+Alright, you've got git in your machine, so now let's start using it.
 
-This is going to be a mini tutorial on how to use git, so we'll make a small repository.
+This is going to be a mini-tutorial on how to use git, so we'll make a small repository.
 
-First let's make our folder. (I'll use my personal directory path but you an use your own)
+First let's make our folder. (I'll use my personal directory path but you an use your own):
 
 ```console
 $ cd Docmuents/Playground/Projects
@@ -81,12 +89,12 @@ Perfect, now let's create a simple text file with a classic Hello Wold
 $ touch hello.txt && vi hello.txt
 ```
 
-Don't be sacred by the last command, we just told our command line to enter the *vim* editor to add some text to your file.
-Remember to press *i* to enter insert mode and start typing.
+Don't be scared by the last command, we just told our command line, or terminal, to enter the *vi* editor to add some text to our file.
+Remember to press *i* to enter *insert* mode and start typing.
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png)
 
-After that we can exit vi pressing *esc* and *:wq*, press enter and you should be back in your terminal.
+After that we can exit vi pressing *esc* and *:wq* (wq stands for *write* and *quit*), press enter and you should be back in your terminal.
 We can check our text file typing:
 
 If your'e in Windows, any text editor will do, like notepad.
@@ -94,6 +102,8 @@ If your'e in Windows, any text editor will do, like notepad.
 ```console
 $ cat hello.txt
 ```
+
+```cat``` outputs the content of the file you typed in.
 
 Now it's time for our first commit. Commits are basically a snapshot of your project, like a picture or a save point. You can always go back to a specific commit, but we'll see that later. First, let's check the project's status to see which file are pending to be added.
 
@@ -112,6 +122,12 @@ That means that *hello.txt* has not been added to the git project yet, so let's 
 $ git add -A
 ```
 
+You can add individual files:
+
+```console
+$ git add hello.txt
+```
+
 After that we are good to go, let's commit our text file:
 
 ```console
@@ -126,7 +142,7 @@ Alright, we have our project rolling, it's time to introduce Branches. Branches 
 
 ####The dev branch
 
-Before anything else, we need to create a dev branch. the Dev branch allows us to break, refactor, add, delete as much code as we need before sending it to production. After all the code has been verified in Dev, we can merge it with master and push it.
+Before anything else, we need to create a dev branch. the Dev branch allows us to break, refactor, add, and delete as much code as we need before sending it to production, or a *final result*, which almost always is *master*. After all the code has been verified in Dev, we can merge it with master and push it.
 
 ```console
 $ git checkout -b dev
@@ -182,11 +198,10 @@ $ git merge feature/website
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png)
 
-
 Now, repeating the *ls* command will show us our *index.html* file. Pretty cool, huh?
 
 **Good practice**
-It's good practice to first verify that the external branch (in this case feature/website) works correctly. Maybe right now it's not obvious, but in a Rails application for example, we should make sure all our tests are passing before merging an important feature into dev, and more importantly, master.
+It's good practice to first verify that the external branch (in this case feature/website) works correctly. Maybe right now it's not obvious, but in a Rails application, for example, we should make sure all our tests are passing before merging an important feature into dev, and more importantly, master.
 
 ###Git log
 
@@ -218,14 +233,13 @@ This will send us back in time to that specific point of our project and allow u
 
 ###Git stash
 
-This is a more specific feature of git, but let's say you're in *feature/website* and some coworker asks you to do something in *dev*. That's fair, but you're not finished working in your branch, and to change back to *dev* you'd have to make a silly commit with work that's not done. This is where *git stash* comes in. Git stash let's you add your modified files but instead of commiting them we just
+This is a more specific feature of git, but let's say you're in *feature/website* and some coworker asks you to do something in *dev*. That's fair, but you're not finished working in your branch, and to change back to *dev* you'd have to make a silly commit with work that's not done. This is where *git stash* comes in. Git stash let's you put your code in a *hold* state, and you can move around without affecting the paused files. We just:
 
 ```console
-$ git add -A
 $ git stash
 ```
 
-This sends everything into a queue list, and *pause* your branch, allowing you to switch over to dev and continue working. When coming back to *feature/website* then you should just
+This sends everything into a queue list, and *pauses* your branch, allowing you to switch over to dev and continue working. When coming back to *feature/website* then you should just
 
 ```console
 $ git stash pop
@@ -235,7 +249,7 @@ To resume your work.
 
 ###Github and Github Pages
 
-Alright, you're probably wondering by now how to upload your repository to Github and have many stars. Alright, I'll tell you, if you're reading this then you're already here in github, so go ahead and click the big green button that says **+ New repository**. Name it, add a description and click the create button.
+Alright, you're probably wondering by now how to upload your repository to Github and have many stars. I'll tell you, if you're reading this then you're already here in github, so go ahead and click the big green button that says **+ New repository**. Name it (whatever you want), add a description and click the create button.
 
 The next screen is kinda scary, but no fear, we only need the middle option **…or push an existing repository from the command line**
 
@@ -244,7 +258,7 @@ Before we can push anything though, we need to merge with *master*, remember? Go
 Now we just copy pase:
 
 ```console
-$ git remote add origin git@github.com:oelizondo/git_tutorial.git
+$ git remote add origin git@github.com:<your_username>/<your_repository>.git
 $ git push -u origin master
 ```
 If it's your first time using git, then you'll be prompted to add your email and username. This is fine, it's for git and github to know who you are, so go ahead and follow *those* instructions.
@@ -267,7 +281,6 @@ $ git push -u origin gh-pages
 And we're done! Our website should be published in just a minute.
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_world.png)
-
 
 ###Good Practices and Naming Conventions
 
