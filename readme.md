@@ -138,7 +138,7 @@ $ git add hello.txt
 Despues de eso, podemos avanzar. Hay que hacer un commit a nuestro archivo de texto:
 
 ```console
-$ git commit -m "Adds text file to project"
+$ git commit -m "Agrega un archivo de texto al proyecto"
 ```
 
 El comando *-m* es para adjuntar un mensaje al commit, haciendo mas facil ver que paso en ese punto guardado.
@@ -161,7 +161,7 @@ $ git checkout -b dev
 Ahora tenemos una copia de nuestro proyecto en otra rama. Es hora de modificarla! Es buena practica tener una rama diferente para una funcion, componente, prueba o caracteristica. En este momento, estamos en la rama dev, asi que crearemos una rama nueva llamada *caracteristica/sitioweb*, y tendremos un simple archivo html ahi.
 
 ```console
-$ git checkout -b feature/website
+$ git checkout -b caracteristica/sitioweb
 ```
 
 Luego creamos nuestro archivo html:
@@ -200,7 +200,7 @@ $ ls
 Veremos que el archivo *index.html* no esta ahi! No hay que preocuparnos, esto es porque nuestro *index.html* esta en otra rama, y la vamos a traer aqui.
 
 ```console
-$ git merge feature/website
+$ git merge caracteristica/sitioweb
 ```
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png)
