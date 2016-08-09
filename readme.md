@@ -1,46 +1,46 @@
-###Learn 2 Git
+###Aprende Git
 
-This mini readme has the basics of how to use git, upload to Github and how to use GithubPages.
+Este archivo explica lo basico de como usar git, subir tus archivos a Github, y usar GithubPages.
 
-Topics:
+Temas:
 
-* What is Git
-* Installing Git
-* Initializing Git in a projects
-* Switching to a Dev branch
-* Branching out from Dev
-* Verifying and merging branches
+* Que es Git
+* Instalando Git
+* Inicializando Git en proyectos
+* Cambiando a una rama Dev
+* Derivacion desde Dev (branching)
+* Verificando y uniendo ramas (merging)
 * Git Log
 * Git Stash
 * Git Pull
 * Git Clone
-* Link to a remote repository
-* Upload to Github
-* Upload to Github Pages
+* Enlazando a un repositorio remoto
+* Subiendo archivos a Github
+* Subiendo archivos a GithubPages
 
-### What is Git
+### Que es Git
 
-People call git time-traveling, others call it a miracle, but the truth is, Git is a *version manager*. This means that Git helps us keep track of things in our projects.
+La gente describe a git como una maquina del tiempo, algunos lo llaman un milagro, pero la realidad es que git es un *administrador de versiones*. Esto significa que git nos permite tener registro de los cambios a nuestros proyectos.
 
-### Glossary
+### Glosario
 
-* ```mkdir``` make a directory
-* ```touch``` create a file
-* ```cat``` output content of a file
-* ```cd``` change directory 
-* ```vi``` enter text editor vi
-* ```ls``` list directory contents
+* ```mkdir``` generar un nuevo directorio
+* ```touch``` crear un nuevo archivo en blanco
+* ```cat``` desplegar el contenido de un archivo
+* ```cd``` cambiar de directorio 
+* ```vi``` ingresar al editor de texto vi
+* ```ls``` desplegar lista de contenidos
 
-###Installation
-If you're on a Windows machine, then you should go to:
+###Instalacion
+Si estas en una maquina que corre Windows, dirigete a:
 
-#### [Git for Windows](https://git-scm.com/download/win)
+#### [Git para Windows](https://git-scm.com/download/win)
 
-I recommend downloading GitBash (which comes with the installation) as well to have a more *nix terminal and make things easier.
+Yo recomiendo descargar GitBash (viene con la instalacion) para facilitar las cosas.
 
-If you're on a *nix machine, such as Linux or OSX, then you've got nothing to worry about, git already comes with your machine. 
+Si estas en una maquina que corre Unix, asi como Linux o OSX, no te debes de preocupar, pues git ya viene instalado en tu maquina.
 
-In case you want to update it, or in the unusual case it's not there, then run:
+Si quieres actualizarlo, o en el raro caso de que no tengas git, entonces corre lo siguiente en consola:
 
 Linux
 ```console
@@ -54,104 +54,102 @@ $ brew install git
 $ brew upgrade git
 ```
 
-##### Small note on the ```brew``` command:
-Brew stands for Homebrew, a very nice package manager, specifically for OSX, this PM will help you in the future, for installing things like databases, like Postgres, programming languages, like Ruby, and version managers, like RVM. 
+##### Una nota en el comando ```brew```:
+Brew significa Homebrew, un muy buen administrador de paquetes, especificamente para OSX, este administrador te ayudara en el futuro para instalar cosas como bases de datos, como Postgres, lenguajes de programacion, como Ruby, y administradores de version, como RVM. 
 
-You can download it here: [HOMBREW](http://brew.sh/).
+Puedes descargarlo en el siguiente enlace: [HOMBREW](http://brew.sh/).
 
-###Initializing Git
+###Inicializando Git
 
-Alright, you've got git in your machine, so now let's start using it.
+Excelente, tienes git instalado en tu maquina, ahora hay que utilizarlo.
 
-This is going to be a mini-tutorial on how to use git, so we'll make a small repository.
+Este sera un mini-tutorial sobre como usar git, asi que haremos un repositorio (un espacio donde guardas y manejas tu trabajo).
 
-First let's make our folder. (I'll use my personal directory path but you an use your own):
+Para empezar, hagamos una carpeta (Yo usare mi propia direccion personal, asi que ustedes deberan de usar la suya):
 
 ```console
 $ cd Docmuents/Playground/Projects
 ```
 
-Once inside your workspace directory, we'll create a folder to place all of our things for this tutorial.
+Una vez que estes adentro del directorio donde haras tu trabajo, crearemos una carpeta para guardar el contenido de este tutorial.
 
 ```console
 $ mkdir git_tutorial && cd git_tutorial
 ```
 
-Great! Now, let's initialize our git project via:
+Excelente! Ahora vamos a inicializar git en nuestro espacio de trabajo, utilizando:
 
 ```console
 $ git init
 ```
-You should get a message like 
+Deberias de ver un mensaje como este:
 
 ```console
 Initialized empty Git repository in /Documents/Playground/Proyectos/git_tutorial/.git/
 ```
 
-You should see something like this:
+Deberias de ver algo como esto:
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_init.png)
 
-Perfect, now let's create a simple text file with a classic Hello Wold
+Perfecto, ahora hay que crear un simple archivo de texto con el clasico "Hello World"
 
 ```console
 $ touch hello.txt && vi hello.txt
 ```
 
-Don't be scared by the last command, we just told our command line, or terminal, to enter the *vi* editor to add some text to our file.
-Remember to press *i* to enter *insert* mode and start typing.
+No temas al ultimo comando, solo le instruimos a nuestra terminal (tradicionalmente llamada "command line") que ingresara al editor *vi* para agregar algo de texto a nuestro nuevo archivo.
+No olvides presionar *i* para entrar a modo de *insert* y comenzar a teclear, escribiendo en el archivo.
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_txt.png)
 
-After that we can exit vi pressing *esc* and *:wq* (wq stands for *write* and *quit*), press enter and you should be back in your terminal.
-We can check our text file typing:
-
-If you're in Windows, any text editor will do, like notepad.
+Despues de eso, podemos salir de vi presionando *esc* y *:wq* (wq significa *write* y *quit*, o escribir y salir), presiona *enter* y deberias de estar de regreso en la terminal.
+Podemos revisar nuestro archivo de texto al teclear:
 
 ```console
 $ cat hello.txt
 ```
 
-```cat``` outputs the content of the file you typed in.
+```cat``` muestra los contenidos del archivo que indicaste.
 
-Now it's time for our first commit. Commits are basically a snapshot of your project, like a picture or a save point. You can always go back to a specific commit, but we'll see that later. First, let's check the project's status to see which file are pending to be added.
+Ahora es tiempo para nuestro primer *commit*. Un *commit* es basicamente una fotografia de tu proyecto, donde el estado del proyecto se guarda. Siempre puedes regresarte a un commit especifico, pero veremos eso luego. Primero, hay que revisar el estado de nuestro proyecto para ver que archivos faltan ser agregados.
 
 ```console
 $ git status
 ```
 
-You should see:
+Deberias de ver:
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_status.png)
 
 
-That means that *hello.txt* has not been added to the git project yet, so let's do that with a command to add *all* the files in our project:
+Esto significa que *hello.txt* no ha sido agregado al proyecto de git aun, asi que hagamos eso con un comando para agregar a todos los archivos en nuestro proyecto:
 
 ```console
 $ git add -A
 ```
 
-You can add individual files:
+Puedes agregar archivos individuales tambien:
 
 ```console
 $ git add hello.txt
 ```
 
-After that we are good to go, let's commit our text file:
+Despues de eso, podemos avanzar. Hay que hacer un commit a nuestro archivo de texto:
 
 ```console
 $ git commit -m "Adds text file to project"
 ```
 
-the *-m* command is for attaching a message to your commit, to it's easier to see what happened in that save point.
+El comando *-m* es para adjuntar un mensaje al commit, haciendo mas facil ver que paso en ese punto guardado.
 
-###Branching out
+###Produciendo ramas (branching)
 
-Alright, we have our project rolling, it's time to introduce Branches. Branches allows you create a clone of your project under a different name that's not master, and let's you keep working with a different version of the project without contaminating the master branch. This is useful when we work with other people. Imagine a team of two persons, each branching out from master to his or her own branch and work from there to avoid conflicts with each other.
+Bien, tenemos nuestro proyecto en camino, y es hora de introducir el concepto de ramas, o *branches*. Las ramas te permiten generar un clon de tu proyecto bajo un nombre distinto al proyecto principal (un clon que no se llama *master*), y te permiten seguir trabajando con una version distinta del proyecto sin contaminar la rama *master*. Esto es util cuando trabajamos con mas gente. Imagina a un equipo de dos personas, cada quien generando ramas a partir del archivo *master* y trabajando ahi para evitar conflictos entre si.
 
-####The dev branch
+####La rama dev
 
-Before anything else, we need to create a dev branch. the Dev branch allows us to break, refactor, add, and delete as much code as we need before sending it to production, or a *final result*, which almost always is *master*. After all the code has been verified in Dev, we can merge it with master and push it.
+Antes de cualquier otra cosa, tenemos que crear una rama dev. La rama dev nos permite separarnos, editar, agregar, y borrar cuanto codigo necesitemos antes de enviarlo a produccion o como *producto final*, que casi siempre es *master*. Ya que todo el codigo ha sido revisado y verificado en la rama dev, podemos unirla con master y hacer un *push*, empujando la rama dev hacia master para aceptar el trabajo hecho en dev como parte del producto final.
 
 ```console
 $ git checkout -b dev
@@ -160,46 +158,46 @@ $ git checkout -b dev
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png)
 
 
-Now we have a copy of our project in another branch. It's  time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
+Ahora tenemos una copia de nuestro proyecto en otra rama. Es hora de modificarla! Es buena practica tener una rama diferente para una funcion, componente, prueba o caracteristica. En este momento, estamos en la rama dev, asi que crearemos una rama nueva llamada *caracteristica/sitioweb*, y tendremos un simple archivo html ahi.
 
 ```console
 $ git checkout -b feature/website
 ```
 
-Then we create our HTML file:
+Luego creamos nuestro archivo html:
 
 ```console
 $ touch index.html
 ```
 
-The content is in this link:
+El contenido del html viene en el siguiente enlace:
 
-* [Simple Website structure](https://gist.githubusercontent.com/oelizondo/d5b95e661878135feeb6/raw/dc2893cb0066dd3c8cf127bf5cbf10e6f8a1bbef/index.html)
+* [Estructura de Sitio Web Simple](https://gist.githubusercontent.com/oelizondo/d5b95e661878135feeb6/raw/dc2893cb0066dd3c8cf127bf5cbf10e6f8a1bbef/index.html)
 
-Just copy and paste it with any text editor.
+Solo copia y pega el contenido a tu html con cualquier editor de texto.
 
-###Verifying and merging branches
+###Verificando y uniendo ramas (merging)
 
-Great! Now it's time to make our new commit. Same as before:
+Excelente! Ahora es hora de hacer nuestro nuevo commit. Al igual que antes:
 
 ```console
 $ git add -A
-$ git commit -m "Adds website to project"
+$ git commit -m "Agrega el sitio web al proyecto"
 ```
 
-Awesome, now it's time to *merge* our branches. Merging just means we take one branch and combine it with another one. We're going to merge it into Dev right now, here's how it would look like:
+Bien, ahora es tiempo de hacer *merge* (unir) a nuestras ramas. Esto solo quiere decir que agarraremos una reme y la combinaremos con otra rama. Vamos a unirla a dev ahora, asi es como se ve:
 
 ```console
 $ git checkout dev
 ```
 
-If we do
+Si hacemos lo siguiente:
 
 ```console
 $ ls
 ```
 
-We'll see that the *index.html* file is no there! Not to worry, this is because our *index.html* is in another branch, and we're going to bring it over here.
+Veremos que el archivo *index.html* no esta ahi! No hay que preocuparnos, esto es porque nuestro *index.html* esta en otra rama, y la vamos a traer aqui.
 
 ```console
 $ git merge feature/website
@@ -207,16 +205,17 @@ $ git merge feature/website
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_merge.png)
 
-Now, repeating the *ls* command will show us our *index.html* file. Pretty cool, huh?
+Repitiendo el comando *ls* nos mostrara que nuestro *index.html* esta aqui, indicando que unimos las ramas exitosamente. Grandioso, no?
 
-**Good practice**
-It's good practice to first verify that the external branch (in this case feature/website) works correctly. Maybe right now it's not obvious, but in a Rails application, for example, we should make sure all our tests are passing before merging an important feature into dev, and more importantly, master.
+**Buena practica**
+
+Es buena practica verificar que la rama externa (en este caso fue caracteristica/sitioweb) funciona correctamente. Quiza no es muy claro u obvio ahorita, pero en una aplicacion de Rails, por ejemplo, deberiamos de tener seguro que nuestras pruebas son exitosas antes de unir una funcion importante a la rama dev, y, mas importante, a master.
 
 ###Git log
 
-Seems like we did a lot, but let's go back to see what we actually did. Wait, how do we do that?
+Parece que hemos hecho mucho, pero hay que regresarnos a ver que hemos hecho en realidad. Pero espera, como hacemos eso?
 
-Git is awesome enough that it keeps track of everything we do, kind of like a log (not a wooden one). If we type
+Git es suficientemente maravilloso como para notar todo lo que hemos hecho, como un registro. Si tecleamos:
 
 ```console
 $ git log
@@ -225,103 +224,105 @@ $ git log
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_log.png)
 
 
-we can see:
+podemos ver:
 
-* The commit Id
-* The author of the commit
-* When was the commit made
-* The message that comes with the commit
+* La identificacion del commit
+* El autor del commit
+* Cuando fue hecho el commit
+* El mensaje que viene con el commit
 
-This is very useful and we can keep track of *who* does *what* and *when*. Remember when I told you we can hop to different commits in case somebody commited some buggy code? We totally can:
+Esto es muy util y podemos guardar registro de *quien* hace *que* y *cuando*. Recuerdas cuando mencione que podemos ver los diferentes commits en caso de que alguien subio codigo disfuncional? Claro que podemos:
 
 ```console
 git checkout <commit_id>
 ```
 
-This will send us back in time to that specific point of our project and allow us to fix that buggy code nobody likes.
+Esto nos regresara en el tiempo a ese punto especifico en nuestro proyecto y nos dejara arreglar ese codigo malo que a nadie le gusta.
 
 ###Git stash
 
-This is a more specific feature of git, but let's say you're in *feature/website* and some coworker asks you to do something in *dev*. That's fair, but you're not finished working in your branch, and to change back to *dev* you'd have to make a silly commit with work that's not done. This is where *git stash* comes in. Git stash let's you put your code in a *hold* state, and you can move around without affecting the paused files. We just:
+Esta es una funcion mas especifica de git, pero digamos que estas en *caracteristica/sitioweb* y un amigo te pide que hagas algo en la rama *dev*. Es valido, pero aun no has terminado de trabajar en tu rama *caracteristica/sitioweb*, y para cambiar a *dev* tendrias que hacer un commit con trabajo que no esta terminado. Aqui es donde *git stash* sirve. Git stash te permite poner tu codigo en un estado de pausa, y puedes moverte y trabajar sin afectar a los archivos que mantuviste en pausa. Para esto, hacemos:
 
 ```console
 $ git stash
 ```
 
-This sends everything into a queue list, and *pauses* your branch, allowing you to switch over to dev and continue working. When coming back to *feature/website* then you should just
+Esto hace pausa a tu rama, permitiendote cambiarte a dev y continuar trabajo ahi. Para volver a *caracteristica/sitioweb*, entonces haces lo siguiente:
 
 ```console
 $ git stash pop
 ```
 
-To resume your work.
+para continuar tu trabajo.
 
-###Github and Github Pages
+###Github y Github Pages
 
-Alright, you're probably wondering by now how to upload your repository to Github and have many stars. I'll tell you, if you're reading this then you're already here in github, so go ahead and click the big green button that says **+ New repository**. Name it (whatever you want), add a description and click the create button.
+Bien, probablemente estas preguntandote sobre como le haras para subir tu repositorio a Github y ganar muchas estrellas. Te lo dire, si estas leyendo esto entonces ya estas aqui en github, asi que ve y presiona el gran boton verde en tu perfil que dice **+ New repository**. Dale un nombre (lo que tu quieras), agregale una descripcion, y presiona el boton para crearlo.
 
-The next screen is kinda scary, but no fear, we only need the middle option **…or push an existing repository from the command line**
+La siguiente pantalla da un poco de miedo, pero no lo tengas, solo necesitamos la opcion de en medio: **or push an existing repository from the command line**
 
-Before we can push anything though, we need to merge with *master*, remember? Go ahead and commit everything you have in *dev*, and merge to *master* (No tutorial this time, your turn!).
+Antes de que podamos hacerle push a lo que sea, tenemos que unirlo con *master*, recuerdas? Haz commit a todo lo que tengas en *dev*, y unelo a *master* (no hay tutorial aqui, es tu turno!).
 
-Now we just copy paste:
+Ahora damos en la consola (metiendo tus datos):
 
 ```console
-$ git remote add origin git@github.com:<your_username>/<your_repository>.git
-$ git push -u origin master
+$ git remote add github git@github.com:<tu_nombre_de_usuario>/<tu_repositorio>.git
+$ git push -u github master
 ```
-If it's your first time using git, then you'll be prompted to add your email and username. This is fine, it's for git and github to know who you are, so go ahead and follow *those* instructions.
 
-And there we go, you just published your first project on Github!
 
-Great, now we want to publish our website. Wait, what!? But I have to pay for that! Don't worry, Github gives us free hosting of our websites. You can check the whole documentation here: [Github Pages](https://pages.github.com/). 
 
-For now, let's go ahead and checkout a new branch called *gh-pages*
+Si es tu primera vez usando git, te pediran tu cuenta de github (el correo con el que te inscribiste) y tu contraseña. Esto esta bien, es para que git y github sepa quien eres, asi que sigue esas instrucciones.
+
+Y ahi lo tienes, acabas de publicar tu primer proyecto en Github!
+
+Bien, ahora queremos publicar nuestro sitio. Espera, que!? Pero debo de pagar por eso! No te preocupes, Github nos proporciona ese servicio de forma gratuita. Puedes checar toda la documentacion aqui (ingles): [Github Pages](https://pages.github.com/). 
+
+Por ahora, hagamos una nueva rama llamada *gh-pages*
 
 ```console
 $ git checkout -b gh-pages
 ```
-Now we just push
+Ahora solo hacemos *push*
 
 ```console
-$ git push -u origin gh-pages
+$ git push -u github gh-pages
 ```
 
 And we're done! Our website should be published in just a minute.
+Y terminamos! Nuestro sitio deberia de estar publicado en un momento. Puedes buscarlo como: <nombre_de_usuario>.github.io/<nombre_de_repositorio>
 
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/hello_world.png)
 
-###Good Practices and Naming Conventions
+###Buenas Practicas y Estatutos Para Nombrar
 
-Some good practices:
+Algunas buenas practicas:
 
-* Always create a dev / mvp / staging branch from master so you can work without worries.
-* Name your branches short and sweet, prefix them with the purpose of that branch *feauture/user_aunthentication*, *test/users_spec*.
-* After making sure your branch is working, merge it to dev and then delete that branch. This avoids having unused left-over data.
-* Remember to commit useful messages. Don't make a "lol" commit message. What if another developer has to join your team and must read through your code base?
+* Siempre crea una rama dev / mvp / staging desde master para que puedas trabajar sin preocupaciones.
+* Nombra a tus ramas de manera corta y astuta, dandoles prefijos que indiquen sus propositos.
+* Despues de asegurar que tu rama es funcional, unela a dev y luego elimina esa rama. Esto evita tener codigo no utilizado y de sobra.
+* Siempre recuerda poner mensajes utiles con tus commits. No hagas un mensaje de commit que diga "XD". Que si otro desarrollador tiene que unirse a tu equipo y debe de leer por tu codigo?
 
-Feel free to add any other good practices you feel necessary! How? like this:
+Sientete bienvenido a agregar cualquier buena practica que haga falta! Como? Asi:
 
-###Contributing
+###Contribuyendo
 
-1. Clone project.
-3. Checkout a new branch for your changes.
-4. Do ```git push -u origin <your_branch>```
-5. Create a pull request from your banch to ```spanish```.
-
-###Todo
-* Translate to Spanish.
+1. Clona el proyecto.
+3. Crea una nueva rama para tus cambios.
+4. Haz ```git push -u github <tu_rama>```
+5. Crea un *pull request* hacia ```spanish```.
 
 
-###Author
+###Autor
 
 ####Oscar Elizondo
 * http://twitter.com/oehinojosa
 * http://github.com/oelizondo
 
 
-###Where to now?
+###Y ahora?
 
-These are just the basics of git, I would recommend checking out [Gitflow](https://github.com/nvie/gitflow) to see where these conventions and practices come from. [TryGit](https://try.github.io/levels/1/challenges/1) is acclaimed by the community, why don't you give it a try?
+Esto es solo lo basico de git. Yo recomendaria ver [Gitflow](https://github.com/nvie/gitflow) para ver de donde vienen estas practicas y convenciones. [TryGit](https://try.github.io/levels/1/challenges/1) es aclamado por la comunidad. Por que no le das un intento?
 
-If something is not clear enough here, feel free to send a message or create an issue.
+
+Si algo no es suficientemente claro, por favor deje un mensaje para poderlo corregir!
