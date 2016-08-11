@@ -302,12 +302,13 @@ Some good practices:
 
 Feel free to add any other good practices you feel necessary! How? like this:
 
-###Contributing
+###Contributing to other projects.
 
 1. Clone project.
-3. Checkout a new branch for your changes.
+2. Checkout a new branch for your changes.
+3. Make your changes.
 4. Do ```git push -u origin <your_branch>```
-5. Create a pull request from your banch to ```spanish```.
+5. Create a pull request from your banch to ```spanish``` or ```master```.
 
 ###Todo
 * Translate to Spanish.
