@@ -36,7 +36,7 @@ If you're on a Windows machine, then you should go to:
 
 #### [Git for Windows](https://git-scm.com/download/win)
 
-I recommend downloading GitBash (which comes with the installation) as well to have a more *nix terminal and make things easier.
+I recommend downloading GitBash (which comes with the installation) as well as to have a more *nix terminal and make things easier.
 
 If you're on a *nix machine, such as Linux or OSX, then you've got nothing to worry about, git already comes with your machine. 
 
@@ -61,11 +61,11 @@ You can download it here: [HOMBREW](http://brew.sh/).
 
 ###Initializing Git
 
-Alright, you've got git in your machine, so now let's start using it.
+Alright, you've got git in your machine, so let's start using it.
 
 This is going to be a mini-tutorial on how to use git, so we'll make a small repository.
 
-First let's make our folder. (I'll use my personal directory path but you an use your own):
+First let's make our folder. (I'll use my personal directory path but you can use your own):
 
 ```console
 $ cd Docmuents/Playground/Projects
@@ -147,11 +147,11 @@ the *-m* command is for attaching a message to your commit, to it's easier to se
 
 ###Branching out
 
-Alright, we have our project rolling, it's time to introduce Branches. Branches allows you create a clone of your project under a different name that's not master, and let's you keep working with a different version of the project without contaminating the master branch. This is useful when we work with other people. Imagine a team of two persons, each branching out from master to his or her own branch and work from there to avoid conflicts with each other.
+Alright, we have our project rolling, it's time to introduce Branches. Branches allow you create a clone of your project under a different name that's not master, and lets you keep working with a different version of the project without contaminating the master branch. This is useful when we work with other people. Imagine a team of two people, each branching out from master to his or her own branch and work from there to avoid conflicts with each other.
 
 ####The dev branch
 
-Before anything else, we need to create a dev branch. the Dev branch allows us to break, refactor, add, and delete as much code as we need before sending it to production, or a *final result*, which almost always is *master*. After all the code has been verified in Dev, we can merge it with master and push it.
+Before anything else, we need to create a dev branch. The Dev branch allows us to break, refactor, add, and delete as much code as we need before sending it to production, or a *final result*, which almost always is *master*. After all the code has been verified in Dev, we can merge it with master and push it.
 
 ```console
 $ git checkout -b dev
@@ -160,7 +160,7 @@ $ git checkout -b dev
 ![Init](https://raw.githubusercontent.com/oelizondo/learn-git/master/git_checkout.png)
 
 
-Now we have a copy of our project in another branch. It's  time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
+Now we have a copy of our project in another branch. It's time to modify it! It's good practice to have a separate branch for a feature, component, test or functionality. Right now we're in Dev, so we're going to create a new branch called *feature/website* and have a simple html file there.
 
 ```console
 $ git checkout -b feature/website
