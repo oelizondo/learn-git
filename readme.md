@@ -304,11 +304,19 @@ Feel free to add any other good practices you feel necessary! How? like this:
 
 ###Contributing to other projects.
 
+When contributing to another person's repository, it's good practice to check open issues first. You should look at them, choose one, and then ask for specifics so you can start working. When you decide on an issue, them you need to:
+
 1. Clone project.
 2. Checkout a new branch for your changes.
 3. Make your changes.
 4. Do ```git push -u origin <your_branch>```
 5. Create a pull request from your banch to ```spanish``` or ```master```.
+
+#### Creating a Pull Request
+Creating a pull request is easy. After you made your changes, you need to push them with
+```git push -u origin <your_branch>```, what this does is creates a new branch in the project, and then asks the owner of that project if your changes are alright to be merged with another working branch.
+
+If the owner says it's okay, then the pull request is merged and the issue is closed. This is what we call open source contributing.
 
 ###Todo
 * Translate to Spanish.
